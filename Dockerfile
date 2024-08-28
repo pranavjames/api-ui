@@ -19,6 +19,9 @@ RUN npm run build
 # Use an official Nginx runtime as the base image
 FROM nginx:1.21-alpine
 
+# Copy the custom Nginx configuration file to the Nginx default configuration directory
+COPY nginx.conf /etc/nginx/nginx.conf
+
 # Copy the built app from the previous stage to the Nginx default public directory
 COPY --from=build /app/build /usr/share/nginx/html
 
