@@ -25,7 +25,7 @@ function ListManager() {
     if (input.trim() === '') return;
     try {
       await fetch(`${apiUrl}/add/${input}`, {
-        method: 'POST',
+        method: 'GET',
       });
       setInput('');
       fetchList(); // Refresh the list after adding
@@ -37,7 +37,7 @@ function ListManager() {
   const deleteItem = async (item) => {
     try {
       await fetch(`${apiUrl}/delete/${item}`, {
-        method: 'DELETE',
+        method: 'GET',
       });
       fetchList(); // Refresh the list after deleting
     } catch (error) {
